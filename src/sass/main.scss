@@ -1,0 +1,59 @@
+@import "compass";
+@import "vendor/font-awesome/font-awesome";
+@import "vendor/bootstrap";
+@import "mixins/breakpoint";
+@import "mixins/mixins";
+@import "mixins/clearfix";
+@import "colors";
+@import "fonts";
+
+
+@import "sprites/*.png";			// Create sprites with src/images/sprites/*.png
+$sprites: sprite-map("sprites/*.png");
+$disable-magic-sprite-selectors: true; 
+
+// @import "icons/*.png"; 			// Sprites - img in src/images
+// @include icons-sprite(home);
+// @include squish-text; 			// Hide text
+// @include inline-block; 			// Inline block
+// @include breakpoint ($tablet) 	// Breakpoints
+// @include containerRwd;			// Element has width definied in mixins/breakpoint/_devices.scss
+// @include clearfix;				// Set clear to both;
+// @include clearfix2;				// Add :after selector width clear:both;
+
+.mainHeader{
+  &__logo {
+    @include squish-text;
+    @include icon(logo, 48px, 48px, false);
+    margin-top: -15px;
+  }
+  &__brand {
+    display: none;
+    @include breakpoint($desktop){
+      display: inline-block;
+    }
+  }
+}
+
+.mainContent {
+  margin-top: 50px;
+  .bakcground-gray {
+    background:lighten($cl-gray,40);
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+}
+
+.mainFooter {
+  margin-top:30px;
+  background: $cl-text;
+  color: $cl-bg;
+  padding:25px 15px 15px 5px;
+}
+
+.hr-hide {
+  border-top-color: transparent;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+

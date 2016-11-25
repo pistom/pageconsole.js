@@ -1,0 +1,18 @@
+$tablet: 480px;
+$desktop: 768px;
+
+$devices: (
+	$tablet,
+	$desktop,
+);
+
+@mixin containerRwd {
+	margin:0 auto;
+	@each $device in $devices {
+		@include breakpoint ($device) {
+			width: ($device - 50);
+			padding: 0 15px;
+			box-sizing:border-box;
+		}
+	}
+}

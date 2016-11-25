@@ -1,0 +1,24 @@
+@mixin icon($file, $width, $height, $hasHover) {
+	width:$width;
+	height:$height;
+	$imageUrl: "../images/sprites/#{$file}.svg";
+	$imageUrl_hover: "../images/sprites/#{$file}_hover.svg";
+	background-image: inline-image($imageUrl, "image/svg+xml;utf8");
+
+	background-repeat: no-repeat;
+	@if ($hasHover){
+		&:hover {
+			background-position: 0 (0 - $height);
+		}
+	}
+	.no-svg & {
+		@include sprites-sprite($file);
+		@if ($hasHover){
+			&:hover {
+				$x: nth(sprite-position($sprites, $file), 1);
+				$y: nth(sprite-position($sprites, $file), 2);
+				background-position:$x ($y - $height);
+			}
+		}
+	}
+}

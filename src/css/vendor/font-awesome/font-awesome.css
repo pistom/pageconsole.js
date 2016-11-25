@@ -1,0 +1,243 @@
+/*!
+ *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 4, ../../../sass/vendor/font-awesome/_core.scss */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 5, ../../../sass/vendor/font-awesome/_larger.scss */
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+/* line 10, ../../../sass/vendor/font-awesome/_larger.scss */
+.fa-2x {
+  font-size: 2em;
+}
+
+/* line 11, ../../../sass/vendor/font-awesome/_larger.scss */
+.fa-3x {
+  font-size: 3em;
+}
+
+/* line 12, ../../../sass/vendor/font-awesome/_larger.scss */
+.fa-4x {
+  font-size: 4em;
+}
+
+/* line 13, ../../../sass/vendor/font-awesome/_larger.scss */
+.fa-5x {
+  font-size: 5em;
+}
+
+/* line 3, ../../../sass/vendor/font-awesome/_fixed-width.scss */
+.fa-fw {
+  width: 1.28571em;
+  text-align: center;
+}
+
+/* line 4, ../../../sass/vendor/font-awesome/_list.scss */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14286em;
+  list-style-type: none;
+}
+/* line 8, ../../../sass/vendor/font-awesome/_list.scss */
+.fa-ul > li {
+  position: relative;
+}
+
+/* line 10, ../../../sass/vendor/font-awesome/_list.scss */
+.fa-li {
+  position: absolute;
+  left: -2.14286em;
+  width: 2.14286em;
+  top: 0.14286em;
+  text-align: center;
+}
+/* line 16, ../../../sass/vendor/font-awesome/_list.scss */
+.fa-li.fa-lg {
+  left: -1.85714em;
+}
+
+/* line 4, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em;
+}
+
+/* line 10, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa-pull-left {
+  float: left;
+}
+
+/* line 11, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa-pull-right {
+  float: right;
+}
+
+/* line 14, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa.fa-pull-left {
+  margin-right: .3em;
+}
+/* line 15, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
+
+/* Deprecated as of 4.4.0 */
+/* line 19, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 20, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 23, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa.pull-left {
+  margin-right: .3em;
+}
+/* line 24, ../../../sass/vendor/font-awesome/_bordered-pulled.scss */
+.fa.pull-right {
+  margin-left: .3em;
+}
+
+/* line 4, ../../../sass/vendor/font-awesome/_animated.scss */
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
+/* line 9, ../../../sass/vendor/font-awesome/_animated.scss */
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/* line 4, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 5, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 6, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 8, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* line 9, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 14, ../../../sass/vendor/font-awesome/_rotated-flipped.scss */
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none;
+}
+
+/* line 4, ../../../sass/vendor/font-awesome/_stacked.scss */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+/* line 12, ../../../sass/vendor/font-awesome/_stacked.scss */
+.fa-stack-1x, .fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 18, ../../../sass/vendor/font-awesome/_stacked.scss */
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+/* line 19, ../../../sass/vendor/font-awesome/_stacked.scss */
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+/* line 20, ../../../sass/vendor/font-awesome/_stacked.scss */
+.fa-inverse {
+  color: #fff;
+}
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
