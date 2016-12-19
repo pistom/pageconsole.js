@@ -6,19 +6,19 @@ This script allows running any functionality in a small console-like window. It 
 
 ## Installation
 Download the `pageconsole.js` library and include it to your page:
-```
+```js
 <script src="pageconsole.js"></script>
 ```
 ## Add a console
-```
+```js
 PAGECONSOLE();
 ```
 or
-```
+```js
 window.pageconsole = new PAGECONSOLE();
 ```
 With options
-```
+```js
 window.pageconsole = new PAGECONSOLE({
      hotKey:             "Esc",
      position:           "left",
@@ -38,7 +38,7 @@ window.pageconsole = new PAGECONSOLE({
 
 
 ## API Reference
-```
+```js
 print("string")     // Print a string in console output
 put("string")       // Put a string in console input
 clear()             // Clear console output
@@ -49,9 +49,9 @@ shutup()            // Stop reading text
 ```
 
 ## Examples
-First word in a command is the name of called function. Rest of them is an array of arguments.
+First word in a command is the name of called function. Rest of them are an array of arguments.
 ####Display alert
-```
+```js
 (function(){
     PAGECONSOLE.prototype.alert = function(args){
         var text = args.join(" ");
@@ -65,7 +65,7 @@ First word in a command is the name of called function. Rest of them is an array
 Use: `alert This is alert`
 
 ####Say hello
-```
+```js
 (function(){
     PAGECONSOLE.prototype.hello = function(){
         var name;
@@ -88,13 +88,13 @@ Use: `hello`
 ### Manuals
 Type `man` for display all availables commands.
 For create a manual use prototype.
-```
+```js
 PAGECONSOLE.prototype.hello.man = "Manual text..."
 ```
 
 ### Colors
 You can colorize your outputs strings.
-```
+```js
 "This is [0;33]orange [1;37]color and [1;36] lightcyan [1;37]one."
 ```
 #####List of colors
@@ -120,7 +120,7 @@ For activate text to speech include [artyom.js](https://sdkcarlos.github.io/site
 ### Aliases
 You can create an alias for any command.
 Type:
-```
+```js
 alias a alert This is an alert
 ```
 Then type `a` for executing `alert This is an alert` command.
