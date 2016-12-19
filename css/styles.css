@@ -6797,3 +6797,9 @@ tbody.collapse.in {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+/* line 60, ../sass/main.scss */
+.pageconsole-window {
+  font-family: "Space Mono", monospace !important;
+  font-size: 14px !important;
+}
