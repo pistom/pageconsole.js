@@ -2378,13 +2378,13 @@ if (typeof jQuery === 'undefined') {
 
 (function(){
 
-    PAGECONSOLE.prototype.alert = function(args){
+    Pageconsole.prototype.alert = function(args){
         var text = args.join(" ");
         alert(text);
         this.print("Alert displayed")
     };
 
-    PAGECONSOLE.prototype.hello = function(){
+    Pageconsole.prototype.hello = function(){
         var name;
         var sayHello = function(val){
             name = val;
@@ -2395,6 +2395,6 @@ if (typeof jQuery === 'undefined') {
         this.getLine(sayHello.bind(this));
     };
 
-    window.pc = new PAGECONSOLE();
+    window.pc = new Pageconsole();
 })();
 

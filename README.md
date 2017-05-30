@@ -1,5 +1,6 @@
 # pageconsole.js
 A small console that allows calling scripts on website.
+
 Live demo: [pageconsole.crayon.pro](http://pageconsole.crayon.pro/) (hotkey for show the console: `Esc`).
 
 This script allows running any functionality in a small console-like window. It can be useful to create various behaviors and scripts to automate tasks run as commands in console window.
@@ -11,15 +12,15 @@ Download the `pageconsole.js` library and include it to your page:
 ```
 ## Add a console
 ```js
-PAGECONSOLE();
+Pageconsole();
 ```
 or
 ```js
-window.pageconsole = new PAGECONSOLE();
+window.pageconsole = new Pageconsole();
 ```
 With options
 ```js
-window.pageconsole = new PAGECONSOLE({
+window.pageconsole = new Pageconsole({
      hotKey:             "Esc",
      position:           "left",
      maxOutputLines:     15
@@ -50,37 +51,37 @@ shutup()            // Stop reading text
 
 ## Examples
 First word in a command is the name of called function. Rest of them are an array of arguments.
-####Display alert
+#### Display alert
 ```js
-(function(){
-    PAGECONSOLE.prototype.alert = function(args){
-        var text = args.join(" ");
-        alert(text);
-        this.print("Alert displayed")
-    };
-    new PAGECONSOLE();
-})();
+
+Pageconsole.prototype.alert = function(args){
+    var text = args.join(" ");
+    alert(text);
+    this.print("Alert displayed")
+};
+new Pageconsole();
+
 
 ```
 Use: `alert This is alert`
 
-####Say hello
+#### Say hello
 ```js
-(function(){
-    PAGECONSOLE.prototype.hello = function(){
-        var name;
-        var sayHello = function(val){
-            name = val;
-            this.print("Hello [0;33]"+name);
-            
-            // For activate text to speech include artyom.js library
-            this.say("Hello "+name); 
-        };
-        this.print("Your name:");
-        this.getLine(sayHello.bind(this));
+
+Pageconsole.prototype.hello = function(){
+    var name;
+    var sayHello = function(val){
+        name = val;
+        this.print("Hello [0;33]"+name);
+        
+        // For activate text to speech include artyom.js library
+        this.say("Hello "+name); 
     };
-    new PAGECONSOLE();
-})();
+    this.print("Your name:");
+    this.getLine(sayHello.bind(this));
+};
+new Pageconsole();
+
 ```
 Use: `hello`
 
@@ -89,7 +90,7 @@ Use: `hello`
 Type `man` for display all availables commands.
 For create a manual use prototype.
 ```js
-PAGECONSOLE.prototype.hello.man = "Manual text..."
+Pageconsole.prototype.hello.man = "Manual text..."
 ```
 
 ### Colors
@@ -97,7 +98,7 @@ You can colorize your outputs strings.
 ```js
 "This is [0;33]orange [1;37]color and [1;36] lightcyan [1;37]one."
 ```
-#####List of colors
+##### List of colors
     [0;30] - black
     [0;31] - red
     [0;32] - green
@@ -113,7 +114,7 @@ You can colorize your outputs strings.
     [1;34] - lightblue
     [1;35] - mediumpurple
     [1;36] - lightcyan
-    [1;37] - whit   
+    [1;37] - white   
 ### TextToSpeech
 For activate text to speech include [artyom.js](https://sdkcarlos.github.io/sites/artyom.html) library
 

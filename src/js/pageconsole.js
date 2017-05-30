@@ -1,7 +1,7 @@
-function PAGECONSOLE(config) {
+function Pageconsole(config) {
     config = config || {};
-    if( !(this instanceof PAGECONSOLE ) ) {
-        return new PAGECONSOLE(config);
+    if( !(this instanceof Pageconsole ) ) {
+        return new Pageconsole(config);
     }
     this._config = this._extendOptions(config);
     this._pconWindow = null;
@@ -46,18 +46,18 @@ function PAGECONSOLE(config) {
 }
 
 // Clear StdIn
-PAGECONSOLE.prototype._clearStdIn = function(){
+Pageconsole.prototype._clearStdIn = function(){
     this._pconStdIn.value = "";
 };
 
 // Clear StdOut
-PAGECONSOLE.prototype._clearStdOut = function(){
+Pageconsole.prototype._clearStdOut = function(){
     for(var i=this._pconStdOut.childNodes.length-1; i>=0; i--)
         this._pconStdOut.removeChild(this._pconStdOut.childNodes[i])
 };
 
 // Put line to StdOut
-PAGECONSOLE.prototype._putStdOut = function(s){
+Pageconsole.prototype._putStdOut = function(s){
 
         s = (s instanceof Array) ? s.join("&nbsp;") : s; // If put command run from pageconsole
         s = "<span style=\"color:"+this._config.outputTextColor+"\">"+s.replace(/<(\/?\w*)>/g,"&lt;$1&gt;").replace(/^ +/g,"&nbsp;")+"</span>";
@@ -81,7 +81,7 @@ PAGECONSOLE.prototype._putStdOut = function(s){
 };
 
 // Execute command
-PAGECONSOLE.prototype._execute = function(e){
+Pageconsole.prototype._execute = function(e){
     // ON PRESS ENTER
     if(e.keyCode === 13){
         var inputValue = this._pconStdIn.value;
@@ -119,7 +119,7 @@ PAGECONSOLE.prototype._execute = function(e){
 };
 
 // Get line
-PAGECONSOLE.prototype._getLine = function(callback){
+Pageconsole.prototype._getLine = function(callback){
     var val = null;
     var getLine = function(e){
         if(e.keyCode === 13){
@@ -145,7 +145,7 @@ PAGECONSOLE.prototype._getLine = function(callback){
 };
 
 // Commands history
-PAGECONSOLE.prototype._getCommandFromHistory = function(dir){
+Pageconsole.prototype._getCommandFromHistory = function(dir){
     if(this._history.length !== 0){
         this.put(this._history[this._historyIndex]);
         if(dir === "prev")
@@ -158,7 +158,7 @@ PAGECONSOLE.prototype._getCommandFromHistory = function(dir){
 };
 
 // Extend options
-PAGECONSOLE.prototype._extendOptions = function(config) {
+Pageconsole.prototype._extendOptions = function(config) {
     var defaultConfig = JSON.parse(JSON.stringify(this._defaultConfig));
     for(var key in defaultConfig) {
         if(key in config)
@@ -169,7 +169,7 @@ PAGECONSOLE.prototype._extendOptions = function(config) {
 };
 
 // Create console window
-PAGECONSOLE.prototype._createConsoleWindow = function(){
+Pageconsole.prototype._createConsoleWindow = function(){
     var df = document.createDocumentFragment(),
         pconWindow = document.createElement("div"),
         pconStdOut = document.createElement("div"),
@@ -227,7 +227,7 @@ PAGECONSOLE.prototype._createConsoleWindow = function(){
 };
 
 // Show/Hide console window
-PAGECONSOLE.prototype._showHideConsoleWindow = function(e){
+Pageconsole.prototype._showHideConsoleWindow = function(e){
     if(typeof e !== 'undefined' && this._config.hotKey){
         var hotKey = this._config.hotKey.toLowerCase().split(/ *\+ */);
         var key = (hotKey[hotKey.length-1] === "esc") ? "escape" : hotKey[hotKey.length-1];
@@ -253,7 +253,7 @@ PAGECONSOLE.prototype._showHideConsoleWindow = function(e){
 };
 
 // Add hot key
-PAGECONSOLE.prototype._addHotKeyToDisplayConsoleWindow = function(){
+Pageconsole.prototype._addHotKeyToDisplayConsoleWindow = function(){
     if(this._config.hotKey)
         document.addEventListener('keyup',this._showHideConsoleWindow.bind(this),false);
     else
@@ -261,7 +261,7 @@ PAGECONSOLE.prototype._addHotKeyToDisplayConsoleWindow = function(){
 };
 
 // Colors
-PAGECONSOLE.prototype._colors = {
+Pageconsole.prototype._colors = {
     "[0;30]" : "black",
     "[0;31]" : "red",
     "[0;32]" : "green",
@@ -282,7 +282,7 @@ PAGECONSOLE.prototype._colors = {
 
 
 // Default config
-PAGECONSOLE.prototype._defaultConfig = {
+Pageconsole.prototype._defaultConfig = {
     hotKey:             "Esc",                              // string | false --- ex. "Shift+Ctrl+Z"
     disableStyles:      false,                              // boolean
     domClasses:         ["pageconsole-window","pageconsole-input","pageconsole-output"],
@@ -295,7 +295,7 @@ PAGECONSOLE.prototype._defaultConfig = {
 };
 
 
-PAGECONSOLE.prototype.man = function (args) {
+Pageconsole.prototype.man = function (args) {
     var tmpMaxOutputLines;
     if(args.length === 0){
         this._commandsList.sort();
@@ -323,21 +323,21 @@ PAGECONSOLE.prototype.man = function (args) {
 };
 
 // Add alias
-PAGECONSOLE.prototype.alias = function(args){
+Pageconsole.prototype.alias = function(args){
     var aliasName = args.shift();
     this._aliasses[aliasName] = args.join(" ");
     window.localStorage.setItem("aliasses",JSON.stringify(this._aliasses));
 };
-PAGECONSOLE.prototype.alias.man = "[1;32]Aliasses 1.0[0;37]\nProgram saves an alias to specific command.\nex.: [1;33]alias st scroll top\nst[0;37] is an alias for command [1;33]scroll top[0;37]";
+Pageconsole.prototype.alias.man = "[1;32]Aliasses 1.0[0;37]\nProgram saves an alias to specific command.\nex.: [1;33]alias st scroll top\nst[0;37] is an alias for command [1;33]scroll top[0;37]";
 
 // Exit console
-PAGECONSOLE.prototype.exit = function(){
+Pageconsole.prototype.exit = function(){
     this.hide();
     this.clear();
 };
 
 // Text to speech
-PAGECONSOLE.prototype.say = function(s){
+Pageconsole.prototype.say = function(s){
     //s = (s instanceof Array) ? s.join(" ") : s;
     if (typeof artyom !== 'undefined'){
         if(artyom.speechSupported){
@@ -355,9 +355,9 @@ PAGECONSOLE.prototype.say = function(s){
     else
         this.print("Artyom is not defined")
 };
-PAGECONSOLE.prototype.say.man = "[1;32]Say It 1.0[0;37]\nProgram TextToSpeech.\nOptions:\n-[1;33]say [text]\n-[1;33]say selected (after select command)";
+Pageconsole.prototype.say.man = "[1;32]Say It 1.0[0;37]\nProgram TextToSpeech.\nOptions:\n-[1;33]say [text]\n-[1;33]say selected (after select command)";
 
-PAGECONSOLE.prototype.shutup = function(){
+Pageconsole.prototype.shutup = function(){
     if (typeof artyom !== 'undefined'){
         if(artyom.speechSupported)
             artyom.shutUp();
@@ -368,11 +368,11 @@ PAGECONSOLE.prototype.shutup = function(){
         this.print("Artyom is not defined")
     }
 };
-PAGECONSOLE.prototype.shutup.man = "[1;32]Shut Up[0;37]\nCommand stops reading text."
+Pageconsole.prototype.shutup.man = "[1;32]Shut Up[0;37]\nCommand stops reading text."
 
 // EXAMPLES OF COMMANDS ################################################################################################
 // Scroll page
-PAGECONSOLE.prototype.scroll = function(args) {
+Pageconsole.prototype.scroll = function(args) {
     function scrolling(offset, scrollDuration){
         var i = 0;
         var scrollStep = (offset / (scrollDuration/15));
@@ -404,10 +404,10 @@ PAGECONSOLE.prototype.scroll = function(args) {
                 break;
         }
 };
-PAGECONSOLE.prototype.scroll.man = "[1;32]Scrolling 1.0[0;37]\nOptions:\n-[1;33]down\n-[1;33]down [int]\n-[1;33]up\n-[1;33]up [int]\n-[1;33]top\n-[1;33]bottom";
+Pageconsole.prototype.scroll.man = "[1;32]Scrolling 1.0[0;37]\nOptions:\n-[1;33]down\n-[1;33]down [int]\n-[1;33]up\n-[1;33]up [int]\n-[1;33]top\n-[1;33]bottom";
 
 // Selection
-PAGECONSOLE.prototype.select = function(args) {
+Pageconsole.prototype.select = function(args) {
     while(true){
         if(args.length === 0 || args[0] === "next")
             this._actualNode = this._walk.nextNode();
@@ -437,11 +437,11 @@ PAGECONSOLE.prototype.select = function(args) {
     window.scrollTo(0,findPos(this._actualNode.parentNode)-60);
     this._prevNode = this._actualNode;
 };
-PAGECONSOLE.prototype.select.man = "[1;32]Select element[0;37]\nOptions:\n-[1;33]next\n-[1;33]prev";
+Pageconsole.prototype.select.man = "[1;32]Select element[0;37]\nOptions:\n-[1;33]next\n-[1;33]prev";
 
 
 // Go to website
-PAGECONSOLE.prototype.www = function(args){
+Pageconsole.prototype.www = function(args){
     var iframe = document.createElement("iframe");
     var iframebg = document.createElement("div");
 
@@ -482,4 +482,4 @@ PAGECONSOLE.prototype.www = function(args){
     } else
         this.print("Enter a website URL");
 };
-PAGECONSOLE.prototype.www.man = "[1;32]Change website[0;37]\n";
+Pageconsole.prototype.www.man = "[1;32]Change website[0;37]\n";
