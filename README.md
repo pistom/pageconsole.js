@@ -1,7 +1,7 @@
 # pageconsole.js
 A small console that allows calling scripts on website.
 
-Live demo: [pageconsole.crayon.pro](http://pageconsole.crayon.pro/) (hotkey for show the console: `Esc`).
+Live demo: [pistom.github.io/pageconsole.js](https://pistom.github.io/pageconsole.js/) (hotkey for show the console: `Esc`).
 
 This script allows running any functionality in a small console-like window. It can be useful to create various behaviors and scripts to automate tasks run as commands in console window.
 
